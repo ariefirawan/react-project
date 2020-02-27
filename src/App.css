@@ -1,12 +1,4 @@
-&:hover {
-  cursor: pointer;
-
-  & .background-image {
-    transform: scale(1.1);
-    transition: transform 6s cubic-bezier(0.25, 0.45, 0.45, 0.95);
-  }
-
-  & .content {
-    opacity: 0.9;
-  }
+body {
+  font-family: 'Open Sans Condensed';
+  padding: 20px 60px;
 }
