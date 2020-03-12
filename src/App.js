@@ -13,6 +13,7 @@ import SignInAndSignUp from './pages/sign-in-and-sign-up/sign-in-and-sign-up.com
 import { auth, createUserDoc } from './firebase/firebase.utils';
 import { setCurrentUser as actionUser } from './redux/user/user.action';
 import { selectCurrentUser } from './redux/user/user.selectors';
+// import { selectCollectionsForPreview } from './redux/shop/shop.selector';
 
 class App extends React.Component {
   unsubscribeFromAuth = null;
@@ -22,6 +23,7 @@ class App extends React.Component {
     const { setCurrentUser } = this.props;
 
     this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
+      console.log(userAuth);
       if (userAuth) {
         const userRef = await createUserDoc(userAuth);
         userRef.onSnapshot(snapShot => {
@@ -30,6 +32,10 @@ class App extends React.Component {
       }
       setCurrentUser(userAuth);
       // console.log(userAuth);
+      // addCollectionAndDocuments(
+      //   'collections',
+      //   collectionsarray.map(({ title, items }) => ({ title, items }))
+      // );
     });
   }
 
@@ -61,6 +67,7 @@ class App extends React.Component {
 //destructuring user
 const mapStateToProps = createStructuredSelector({
   currentUser: selectCurrentUser
+  // collectionsarray: selectCollectionsForPreview
 });
 
 const mapDispatchToProps = dispatch => ({
