@@ -1,11 +1,11 @@
-import React from "react";
-import { connect } from "react-redux";
+import React from 'react';
+import { connect } from 'react-redux';
 
-import { selectCollection } from "../../redux/shop/shop.selector";
+import { selectCollection } from '../../redux/shop/shop.selector';
 
-import CollectionItem from "../../components/collection-item/collection-item.component";
+import CollectionItem from '../../components/collection-item/collection-item.component';
 
-import "./collection.styles.scss";
+import './collection.styles.scss';
 
 const CollectionPage = ({ collection }) => {
   console.log(collection);
